@@ -1,22 +1,28 @@
-import * as React from 'react';
-import {AppRouterCacheProvider} from '@mui/material-nextjs/v15-appRouter';
-import CssBaseline from '@mui/material/CssBaseline';
-import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
-import ThemeProvider from "@/theme/index";
+import * as React from "react"
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter"
+import CssBaseline from "@mui/material/CssBaseline"
+import InitColorSchemeScript from "@mui/material/InitColorSchemeScript"
+import ThemeProvider from "@/theme/index"
+import { AuthProvider } from "@/contexts/auth-context"
 
-export default function RootLayout(props: { children: React.ReactNode }) {
-    return (
-        <html lang="en" suppressHydrationWarning>
-        <body>
-        <InitColorSchemeScript attribute="class"/>
-        <AppRouterCacheProvider options={{enableCssLayer: true}}>
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <AuthProvider>
+          <InitColorSchemeScript attribute="class" />
+          <AppRouterCacheProvider options={{ enableCssLayer: true }}>
             <ThemeProvider>
-                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-                <CssBaseline/>
-                {props.children}
+              <CssBaseline />
+              {children}
             </ThemeProvider>
-        </AppRouterCacheProvider>
-        </body>
-        </html>
-    );
+          </AppRouterCacheProvider>
+        </AuthProvider>
+      </body>
+    </html>
+  )
 }
