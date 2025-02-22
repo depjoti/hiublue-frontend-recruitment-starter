@@ -10,7 +10,6 @@
     "post-update": "echo \"codesandbox preview only, need an update\" && pnpm update --latest"
   },
   "dependencies": {
-    "@date-io/date-fns": "^3.2.0",
     "@emotion/cache": "latest",
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
@@ -18,7 +17,9 @@
     "@mui/icons-material": "^6.4.5",
     "@mui/material": "^6.4.4",
     "@mui/material-nextjs": "next",
+    "@mui/x-date-pickers": "^7.0.0",
     "apexcharts": "^4.5.0",
+    "date-fns": "^2.30.0",
     "lodash": "^4.17.21",
     "next": "^15.0.0",
     "react": "^19.0.0",
